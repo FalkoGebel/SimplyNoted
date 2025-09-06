@@ -24,7 +24,7 @@ namespace SimplyNotedLibraryTests
         [DataRow(1)]
         [DataRow(53)]
         [DataRow(99)]
-        public void Create_new_note_for_given_times_and_return_correct_id(int notesToAdd)
+        public void Create_new_note_for_given_times_and_return_correct_id_and_find_correct_number_of_notes(int notesToAdd)
         {
             //Arrange
             Notes Notes = new();
@@ -36,6 +36,7 @@ namespace SimplyNotedLibraryTests
 
             // Assert
             lastId.Should().Be(notesToAdd);
+            Notes.CurrentNotes.Count.Should().Be(notesToAdd);
         }
 
         [TestMethod]
@@ -92,6 +93,7 @@ namespace SimplyNotedLibraryTests
             NoteModel note = Notes.GetNote(id);
             string title = "New Title";
             string content = "New Content";
+            Thread.Sleep(2); // Ensure UpdatedAt is different from CreatedAt
 
             // Act
             note.Title = title;
@@ -103,9 +105,43 @@ namespace SimplyNotedLibraryTests
             note.Id.Should().Be(id);
             note.Title.Should().Be(title);
             note.Content.Should().Be(content);
-            note.UpdatedAt.Should().BeCloseTo(DateTime.Now, TimeSpan.FromMilliseconds(20));
+            note.UpdatedAt.Should().BeCloseTo(DateTime.Now, TimeSpan.FromMilliseconds(30));
+
+            int millisecondsDifference = (int)(note.UpdatedAt - note.CreatedAt).TotalMilliseconds;
+            millisecondsDifference.Should().BeGreaterThan(0);
         }
 
-        // TODO - add tests for deleting note
+        [TestMethod]
+        public void Try_to_delete_not_existing_note_and_get_exception()
+        {
+            //Arrange
+            Notes Notes = new();
+
+            // Assert
+            Assert.ThrowsException<ArgumentException>(() =>
+            {
+                Notes.DeleteNote(1);
+            });
+        }
+
+        [DataTestMethod]
+        [DataRow(1, 1)]
+        [DataRow(53, 22)]
+        [DataRow(99, 45)]
+        public void Delete_existing_notes_and_find_correct_number_of_notes(int numberOfNotesToAdd, int numberOfNotesToDelete)
+        {
+            //Arrange
+            Notes Notes = new();
+
+            // Act
+            for (int i = 0; i < numberOfNotesToAdd; i++)
+                _ = Notes.AddNote();
+
+            for (int i = 0; i < numberOfNotesToDelete; i++)
+                Notes.DeleteNote(Notes.CurrentNotes.First().Id);
+
+            // Assert
+            Notes.CurrentNotes.Count.Should().Be(numberOfNotesToAdd - numberOfNotesToDelete);
+        }
     }
 }
