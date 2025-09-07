@@ -8,6 +8,16 @@ namespace SimplyNotedLibrary
 
         public List<NoteModel> CurrentNotes => _notes;
 
+        public static Notes LoadFromFile(string filePath)
+        {
+            NotesModel notesModel = FileHelpers.ReadFromJsonFile<NotesModel>(filePath);
+
+            return new Notes()
+            {
+                _notes = [.. notesModel.Notes]
+            };
+        }
+
         /// <summary>
         /// Add a new empty note to the collection and return its id.
         /// </summary>
@@ -41,6 +51,11 @@ namespace SimplyNotedLibrary
         public NoteModel GetNote(int id)
             => _notes.Where(n => n.Id == id).FirstOrDefault()
                 ?? throw new ArgumentException($"Note with id \"{id}\" does not exist.");
+
+        public void SaveToFile(string filePath)
+        {
+            FileHelpers.WriteToJsonFile(filePath, new NotesModel() { Notes = [.. _notes] });
+        }
 
         /// <summary>
         /// Update an existing note in the collection.
