@@ -1,0 +1,22 @@
+﻿<Window x:Class="SimplyNotedUiWpf.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:SimplyNotedUiWpf.ViewModels"
+        xmlns:local="clr-namespace:SimplyNotedUiWpf.Views"
+        mc:Ignorable="d"
+        Title="MainView" Height="450" Width="800">
+    <Window.DataContext>
+        <vm:MainViewModel />
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <ListBox Grid.Column="0" ItemsSource="{Binding NoteModels}" DisplayMemberPath="Title" SelectedItem="{Binding SelectedNote, Mode=TwoWay}" />
+        <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
+    </Grid>
+</Window>
