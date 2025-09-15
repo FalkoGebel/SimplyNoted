@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:SimplyNotedUiWpf.ViewModels"
+        xmlns:r="clr-namespace:SimplyNotedUiWpf.Properties"
         xmlns:local="clr-namespace:SimplyNotedUiWpf.Views"
         mc:Ignorable="d"
         Title="MainView" Height="450" Width="800">
@@ -16,7 +17,14 @@
             <ColumnDefinition Width="5" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <ListBox Grid.Column="0" ItemsSource="{Binding NoteModels}" DisplayMemberPath="Title" SelectedItem="{Binding SelectedNote, Mode=TwoWay}" />
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Content="{x:Static r:Literals.MainView_NewNoteButton_Content}" Command="{Binding NewNoteCommand}" Margin="5" />
+            <ListBox Grid.Row="1" ItemsSource="{Binding NoteModels}" DisplayMemberPath="Title" SelectedItem="{Binding SelectedNote, Mode=TwoWay}" />
+        </Grid>
         <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
     </Grid>
 </Window>
