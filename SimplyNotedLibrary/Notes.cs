@@ -8,8 +8,16 @@ namespace SimplyNotedLibrary
 
         public List<NoteModel> CurrentNotes => _notes;
 
+        private static void CheckAndCreateDirectory(string filePath)
+        {
+            string path = Path.GetDirectoryName(filePath)
+                          ?? throw new ArgumentNullException(nameof(filePath), "Could not get directory name from file path.");
+            Directory.CreateDirectory(path);
+        }
+
         public static Notes LoadFromFile(string filePath)
         {
+            CheckAndCreateDirectory(filePath);
             NotesModel notesModel = FileHelpers.ReadFromJsonFile<NotesModel>(filePath);
 
             return new Notes()
@@ -54,6 +62,7 @@ namespace SimplyNotedLibrary
 
         public void SaveToFile(string filePath)
         {
+            CheckAndCreateDirectory(filePath);
             FileHelpers.WriteToJsonFile(filePath, new NotesModel() { Notes = [.. _notes] });
         }
 

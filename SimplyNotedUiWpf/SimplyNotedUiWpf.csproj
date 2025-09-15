@@ -16,4 +16,19 @@
     <ProjectReference Include="..\SimplyNotedLibrary\SimplyNotedLibrary.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Properties\Literals.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Literals.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Literals.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Literals.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
 </Project>
