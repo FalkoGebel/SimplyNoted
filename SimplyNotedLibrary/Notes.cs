@@ -73,7 +73,7 @@ namespace SimplyNotedLibrary
         public void UpdateNote(NoteModel note)
         {
             DeleteNote(note.Id);
-            note.UpdatedAt = DateTime.Now;
+            note.ModifiedAt = DateTime.Now;
             _notes.Add(note);
         }
     }
