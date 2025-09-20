@@ -70,11 +70,38 @@ namespace SimplyNotedUiWpf.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Save ähnelt.
+        /// </summary>
+        public static string MainView_SaveNoteButton_Content {
+            get {
+                return ResourceManager.GetString("MainView_SaveNoteButton_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die New Note ähnelt.
         /// </summary>
         public static string MainViewModel_NewNote_DefaultTitle {
             get {
                 return ResourceManager.GetString("MainViewModel_NewNote_DefaultTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Created: ähnelt.
+        /// </summary>
+        public static string MainViewModel_Note_CreatedLabel_Content {
+            get {
+                return ResourceManager.GetString("MainViewModel_Note_CreatedLabel_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Modified: ähnelt.
+        /// </summary>
+        public static string MainViewModel_Note_ModifiedLabel_Content {
+            get {
+                return ResourceManager.GetString("MainViewModel_Note_ModifiedLabel_Content", resourceCulture);
             }
         }
     }

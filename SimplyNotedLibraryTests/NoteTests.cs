@@ -67,7 +67,7 @@ namespace SimplyNotedLibraryTests
             note.Title.Should().Be(string.Empty);
             note.Content.Should().Be(string.Empty);
             note.CreatedAt.Should().BeCloseTo(DateTime.Now, TimeSpan.FromMilliseconds(30));
-            note.UpdatedAt.Should().BeCloseTo(DateTime.Now, TimeSpan.FromMilliseconds(30));
+            note.ModifiedAt.Should().BeCloseTo(DateTime.Now, TimeSpan.FromMilliseconds(30));
         }
 
         [TestMethod]
@@ -105,9 +105,9 @@ namespace SimplyNotedLibraryTests
             note.Id.Should().Be(id);
             note.Title.Should().Be(title);
             note.Content.Should().Be(content);
-            note.UpdatedAt.Should().BeCloseTo(DateTime.Now, TimeSpan.FromMilliseconds(30));
+            note.ModifiedAt.Should().BeCloseTo(DateTime.Now, TimeSpan.FromMilliseconds(30));
 
-            int millisecondsDifference = (int)(note.UpdatedAt - note.CreatedAt).TotalMilliseconds;
+            int millisecondsDifference = (int)(note.ModifiedAt - note.CreatedAt).TotalMilliseconds;
             millisecondsDifference.Should().BeGreaterThan(0);
         }
 

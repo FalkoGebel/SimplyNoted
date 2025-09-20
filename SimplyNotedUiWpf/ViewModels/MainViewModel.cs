@@ -20,6 +20,12 @@ namespace SimplyNotedUiWpf.ViewModels
         [ObservableProperty]
         private List<NoteModel> _noteModels = [];
 
+        [ObservableProperty]
+        private NoteModel? _selectedNoteModel;
+
+        [ObservableProperty]
+        private NoteModel? _currentNoteModel;
+
         [RelayCommand]
         private void NewNote()
         {
@@ -31,10 +37,40 @@ namespace SimplyNotedUiWpf.ViewModels
             UpdateNotesFromFile();
         }
 
+        [RelayCommand]
+        private void SaveNote()
+        {
+            if (CurrentNoteModel == null)
+            {
+                return;
+            }
+
+            _notes.UpdateNote(CurrentNoteModel);
+            _notes.SaveToFile(_pathFile);
+            UpdateNotesFromFile();
+        }
+
+        partial void OnSelectedNoteModelChanged(NoteModel? value)
+        {
+            if (value == null)
+            {
+                CurrentNoteModel = null;
+                return;
+            }
+
+            CurrentNoteModel = new(value.Id)
+            {
+                Title = value.Title,
+                CreatedAt = value.CreatedAt,
+                ModifiedAt = value.ModifiedAt,
+                Content = value.Content
+            };
+        }
+
         private void UpdateNotesFromFile()
         {
             _notes = Notes.LoadFromFile(_pathFile);
-            NoteModels = _notes.CurrentNotes;
+            NoteModels = [.. _notes.CurrentNotes.OrderByDescending(n => n.CreatedAt)];
         }
     }
 }
