@@ -70,6 +70,42 @@ namespace SimplyNotedUiWpf.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Created: ähnelt.
+        /// </summary>
+        public static string MainView_Note_CreatedLabel_Content {
+            get {
+                return ResourceManager.GetString("MainView_Note_CreatedLabel_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Modified: ähnelt.
+        /// </summary>
+        public static string MainView_Note_ModifiedLabel_Content {
+            get {
+                return ResourceManager.GetString("MainView_Note_ModifiedLabel_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Created (latest) ähnelt.
+        /// </summary>
+        public static string MainView_NoteList_ContextMenu_Sorting_CreatedLatest {
+            get {
+                return ResourceManager.GetString("MainView_NoteList_ContextMenu_Sorting_CreatedLatest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Created (oldest) ähnelt.
+        /// </summary>
+        public static string MainView_NoteList_ContextMenu_Sorting_CreatedOldest {
+            get {
+                return ResourceManager.GetString("MainView_NoteList_ContextMenu_Sorting_CreatedOldest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Save ähnelt.
         /// </summary>
         public static string MainView_SaveNoteButton_Content {
@@ -84,24 +120,6 @@ namespace SimplyNotedUiWpf.Properties {
         public static string MainViewModel_NewNote_DefaultTitle {
             get {
                 return ResourceManager.GetString("MainViewModel_NewNote_DefaultTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Created: ähnelt.
-        /// </summary>
-        public static string MainViewModel_Note_CreatedLabel_Content {
-            get {
-                return ResourceManager.GetString("MainViewModel_Note_CreatedLabel_Content", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Modified: ähnelt.
-        /// </summary>
-        public static string MainViewModel_Note_ModifiedLabel_Content {
-            get {
-                return ResourceManager.GetString("MainViewModel_Note_ModifiedLabel_Content", resourceCulture);
             }
         }
     }

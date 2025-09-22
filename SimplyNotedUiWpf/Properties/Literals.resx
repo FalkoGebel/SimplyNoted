@@ -120,14 +120,20 @@
   <data name="MainViewModel_NewNote_DefaultTitle" xml:space="preserve">
     <value>New Note</value>
   </data>
-  <data name="MainViewModel_Note_CreatedLabel_Content" xml:space="preserve">
-    <value>Created:</value>
-  </data>
-  <data name="MainViewModel_Note_ModifiedLabel_Content" xml:space="preserve">
-    <value>Modified:</value>
-  </data>
   <data name="MainView_NewNoteButton_Content" xml:space="preserve">
     <value>New</value>
+  </data>
+  <data name="MainView_NoteList_ContextMenu_Sorting_CreatedLatest" xml:space="preserve">
+    <value>Created (latest)</value>
+  </data>
+  <data name="MainView_NoteList_ContextMenu_Sorting_CreatedOldest" xml:space="preserve">
+    <value>Created (oldest)</value>
+  </data>
+  <data name="MainView_Note_CreatedLabel_Content" xml:space="preserve">
+    <value>Created:</value>
+  </data>
+  <data name="MainView_Note_ModifiedLabel_Content" xml:space="preserve">
+    <value>Modified:</value>
   </data>
   <data name="MainView_SaveNoteButton_Content" xml:space="preserve">
     <value>Save</value>
