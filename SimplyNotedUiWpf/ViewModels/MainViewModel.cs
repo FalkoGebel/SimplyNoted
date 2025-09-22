@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using SimplyNotedLibrary;
 using SimplyNotedLibrary.Models;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace SimplyNotedUiWpf.ViewModels
 {
@@ -15,6 +16,7 @@ namespace SimplyNotedUiWpf.ViewModels
         public MainViewModel()
         {
             UpdateNotesFromFile();
+            UpdateNoteSorting(null);
         }
 
         [ObservableProperty]
@@ -25,6 +27,12 @@ namespace SimplyNotedUiWpf.ViewModels
 
         [ObservableProperty]
         private NoteModel? _currentNoteModel;
+
+        [ObservableProperty]
+        private bool _notesSortingCreatedOldestCheckmarkVisible;
+
+        [ObservableProperty]
+        private bool _notesSortingCreatedLatestCheckmarkVisible;
 
         [RelayCommand]
         private void NewNote()
@@ -48,6 +56,33 @@ namespace SimplyNotedUiWpf.ViewModels
             _notes.UpdateNote(CurrentNoteModel);
             _notes.SaveToFile(_pathFile);
             UpdateNotesFromFile();
+        }
+
+        [RelayCommand]
+        private void UpdateNoteSorting(object? obj)
+        {
+            string? header;
+
+            if (obj is not MenuItem menuItem)
+                header = Properties.Literals.MainView_NoteList_ContextMenu_Sorting_CreatedLatest;
+            else
+                header = menuItem.Header.ToString();
+
+            NotesSortingCreatedLatestCheckmarkVisible = false;
+            NotesSortingCreatedOldestCheckmarkVisible = false;
+
+            if (header == Properties.Literals.MainView_NoteList_ContextMenu_Sorting_CreatedOldest)
+            {
+                NoteModels = [.. NoteModels.OrderBy(n => n.CreatedAt)];
+                NotesSortingCreatedOldestCheckmarkVisible = true;
+            }
+            else if (header == Properties.Literals.MainView_NoteList_ContextMenu_Sorting_CreatedLatest)
+            {
+                NoteModels = [.. NoteModels.OrderByDescending(n => n.CreatedAt)];
+                NotesSortingCreatedLatestCheckmarkVisible = true;
+            }
+
+            // TODO - Implement other sorting options
         }
 
         partial void OnSelectedNoteModelChanged(NoteModel? value)
