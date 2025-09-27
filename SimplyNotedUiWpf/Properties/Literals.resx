@@ -117,8 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="MainViewModel_DeleteNote_ConfirmationMessage" xml:space="preserve">
+    <value>Do you want to delete the current note with the title "{0}" created at {1}?</value>
+  </data>
+  <data name="MainViewModel_DeleteNote_ConfirmationTitle" xml:space="preserve">
+    <value>Delete Note</value>
+  </data>
   <data name="MainViewModel_NewNote_DefaultTitle" xml:space="preserve">
     <value>New Note</value>
+  </data>
+  <data name="MainView_DeleteNoteButton_Content" xml:space="preserve">
+    <value>Delete</value>
   </data>
   <data name="MainView_NewNoteButton_Content" xml:space="preserve">
     <value>New</value>
@@ -129,6 +138,18 @@
   <data name="MainView_NoteList_ContextMenu_Sorting_CreatedOldest" xml:space="preserve">
     <value>Created (oldest)</value>
   </data>
+  <data name="MainView_NoteList_ContextMenu_Sorting_ModifiedLatest" xml:space="preserve">
+    <value>Modified (latest)</value>
+  </data>
+  <data name="MainView_NoteList_ContextMenu_Sorting_ModifiedOldest" xml:space="preserve">
+    <value>Modified (oldest)</value>
+  </data>
+  <data name="MainView_NoteList_ContextMenu_Sorting_TitleAscending" xml:space="preserve">
+    <value>Title (ascending)</value>
+  </data>
+  <data name="MainView_NoteList_ContextMenu_Sorting_TitleDescending" xml:space="preserve">
+    <value>Title (descending)</value>
+  </data>
   <data name="MainView_Note_CreatedLabel_Content" xml:space="preserve">
     <value>Created:</value>
   </data>
@@ -137,5 +158,8 @@
   </data>
   <data name="MainView_SaveNoteButton_Content" xml:space="preserve">
     <value>Save</value>
+  </data>
+  <data name="MainView_Title" xml:space="preserve">
+    <value>Simply Noted</value>
   </data>
 </root>

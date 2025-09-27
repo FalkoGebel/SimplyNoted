@@ -34,6 +34,18 @@ namespace SimplyNotedUiWpf.ViewModels
         [ObservableProperty]
         private bool _notesSortingCreatedLatestCheckmarkVisible;
 
+        [ObservableProperty]
+        private bool _notesSortingModifiedOldestCheckmarkVisible;
+
+        [ObservableProperty]
+        private bool _notesSortingModifiedLatestCheckmarkVisible;
+
+        [ObservableProperty]
+        private bool _notesSortingTitleAscendingCheckmarkVisible;
+
+        [ObservableProperty]
+        private bool _notesSortingTitleDescendingCheckmarkVisible;
+
         [RelayCommand]
         private void NewNote()
         {
@@ -43,15 +55,37 @@ namespace SimplyNotedUiWpf.ViewModels
             _notes.UpdateNote(newNote);
             _notes.SaveToFile(_pathFile);
             UpdateNotesFromFile();
+            SelectedNoteModel = NoteModels.FirstOrDefault(n => n.Id == id);
+        }
+
+        [RelayCommand]
+        private void DeleteNote()
+        {
+            if (CurrentNoteModel == null)
+                return;
+
+            MessageBoxResult result = MessageBox.Show(
+                string.Format(Properties.Literals.MainViewModel_DeleteNote_ConfirmationMessage,
+                              CurrentNoteModel.Title,
+                              CurrentNoteModel.CreatedAt.ToString("dd.M.yyyy HH:mm:ss")),
+                Properties.Literals.MainViewModel_DeleteNote_ConfirmationTitle,
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                _notes.DeleteNote(CurrentNoteModel.Id);
+                _notes.SaveToFile(_pathFile);
+                UpdateNotesFromFile();
+                CurrentNoteModel = null;
+            }
         }
 
         [RelayCommand]
         private void SaveNote()
         {
             if (CurrentNoteModel == null)
-            {
                 return;
-            }
 
             _notes.UpdateNote(CurrentNoteModel);
             _notes.SaveToFile(_pathFile);
@@ -70,6 +104,10 @@ namespace SimplyNotedUiWpf.ViewModels
 
             NotesSortingCreatedLatestCheckmarkVisible = false;
             NotesSortingCreatedOldestCheckmarkVisible = false;
+            NotesSortingModifiedLatestCheckmarkVisible = false;
+            NotesSortingModifiedOldestCheckmarkVisible = false;
+            NotesSortingTitleAscendingCheckmarkVisible = false;
+            NotesSortingTitleDescendingCheckmarkVisible = false;
 
             if (header == Properties.Literals.MainView_NoteList_ContextMenu_Sorting_CreatedOldest)
             {
@@ -81,8 +119,26 @@ namespace SimplyNotedUiWpf.ViewModels
                 NoteModels = [.. NoteModels.OrderByDescending(n => n.CreatedAt)];
                 NotesSortingCreatedLatestCheckmarkVisible = true;
             }
-
-            // TODO - Implement other sorting options
+            else if (header == Properties.Literals.MainView_NoteList_ContextMenu_Sorting_ModifiedOldest)
+            {
+                NoteModels = [.. NoteModels.OrderBy(n => n.ModifiedAt)];
+                NotesSortingModifiedOldestCheckmarkVisible = true;
+            }
+            else if (header == Properties.Literals.MainView_NoteList_ContextMenu_Sorting_ModifiedLatest)
+            {
+                NoteModels = [.. NoteModels.OrderByDescending(n => n.ModifiedAt)];
+                NotesSortingModifiedLatestCheckmarkVisible = true;
+            }
+            else if (header == Properties.Literals.MainView_NoteList_ContextMenu_Sorting_TitleAscending)
+            {
+                NoteModels = [.. NoteModels.OrderBy(n => n.Title)];
+                NotesSortingTitleAscendingCheckmarkVisible = true;
+            }
+            else if (header == Properties.Literals.MainView_NoteList_ContextMenu_Sorting_TitleDescending)
+            {
+                NoteModels = [.. NoteModels.OrderByDescending(n => n.Title)];
+                NotesSortingTitleDescendingCheckmarkVisible = true;
+            }
         }
 
         partial void OnSelectedNoteModelChanged(NoteModel? value)
