@@ -61,6 +61,15 @@ namespace SimplyNotedUiWpf.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Delete ähnelt.
+        /// </summary>
+        public static string MainView_DeleteNoteButton_Content {
+            get {
+                return ResourceManager.GetString("MainView_DeleteNoteButton_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die New ähnelt.
         /// </summary>
         public static string MainView_NewNoteButton_Content {
@@ -106,11 +115,74 @@ namespace SimplyNotedUiWpf.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Modified (latest) ähnelt.
+        /// </summary>
+        public static string MainView_NoteList_ContextMenu_Sorting_ModifiedLatest {
+            get {
+                return ResourceManager.GetString("MainView_NoteList_ContextMenu_Sorting_ModifiedLatest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Modified (oldest) ähnelt.
+        /// </summary>
+        public static string MainView_NoteList_ContextMenu_Sorting_ModifiedOldest {
+            get {
+                return ResourceManager.GetString("MainView_NoteList_ContextMenu_Sorting_ModifiedOldest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Title (ascending) ähnelt.
+        /// </summary>
+        public static string MainView_NoteList_ContextMenu_Sorting_TitleAscending {
+            get {
+                return ResourceManager.GetString("MainView_NoteList_ContextMenu_Sorting_TitleAscending", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Title (descending) ähnelt.
+        /// </summary>
+        public static string MainView_NoteList_ContextMenu_Sorting_TitleDescending {
+            get {
+                return ResourceManager.GetString("MainView_NoteList_ContextMenu_Sorting_TitleDescending", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Save ähnelt.
         /// </summary>
         public static string MainView_SaveNoteButton_Content {
             get {
                 return ResourceManager.GetString("MainView_SaveNoteButton_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Simply Noted ähnelt.
+        /// </summary>
+        public static string MainView_Title {
+            get {
+                return ResourceManager.GetString("MainView_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Do you want to delete the current note with the title &quot;{0}&quot; created at {1}? ähnelt.
+        /// </summary>
+        public static string MainViewModel_DeleteNote_ConfirmationMessage {
+            get {
+                return ResourceManager.GetString("MainViewModel_DeleteNote_ConfirmationMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Delete Note ähnelt.
+        /// </summary>
+        public static string MainViewModel_DeleteNote_ConfirmationTitle {
+            get {
+                return ResourceManager.GetString("MainViewModel_DeleteNote_ConfirmationTitle", resourceCulture);
             }
         }
         
