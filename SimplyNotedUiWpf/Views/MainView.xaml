@@ -22,10 +22,10 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="30" />
+                <RowDefinition Height="40" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <Button Grid.Row="0" Content="{x:Static r:Literals.MainView_NewNoteButton_Content}" Command="{Binding NewNoteCommand}" Margin="5" />
+            <Button Grid.Row="0" Content="{x:Static r:Literals.MainView_NewNoteButton_Content}" Command="{Binding NewNoteCommand}" />
             <ListBox Grid.Row="1" ItemsSource="{Binding NoteModels}" DisplayMemberPath="Title" SelectedItem="{Binding SelectedNoteModel}">
                 <ListBox.ContextMenu>
                     <ContextMenu>
@@ -69,7 +69,7 @@
                 <RowDefinition Height="50" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
-                <RowDefinition Height="30" />
+                <RowDefinition Height="40" />
             </Grid.RowDefinitions>
             <TextBox Grid.Row="0" Text="{Binding CurrentNoteModel.Title}" FontSize="24" FontWeight="Bold" Margin="5" />
             <Grid Grid.Row="1">
@@ -92,8 +92,8 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="3*" />
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Content="{x:Static r:Literals.MainView_DeleteNoteButton_Content}" Command="{Binding DeleteNoteCommand}" Margin="5" />
-                <Button Grid.Column="1" Content="{x:Static r:Literals.MainView_SaveNoteButton_Content}" Command="{Binding SaveNoteCommand}" Margin="5" />
+                <Button Grid.Column="0" Content="{x:Static r:Literals.MainView_DeleteNoteButton_Content}" Command="{Binding DeleteNoteCommand}" />
+                <Button Grid.Column="1" Content="{x:Static r:Literals.MainView_SaveNoteButton_Content}" Command="{Binding SaveNoteCommand}" />
             </Grid>
         </Grid>
     </Grid>
