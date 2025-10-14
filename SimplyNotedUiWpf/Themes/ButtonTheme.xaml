@@ -10,8 +10,8 @@
     <SolidColorBrush x:Key="Button.Border.Disabled" Color="{DynamicResource White}"/>
     <SolidColorBrush x:Key="Button.Border.Normal" Color="{DynamicResource Black}"/>
     <SolidColorBrush x:Key="Button.Background.Disabled" Color="{DynamicResource White}"/>
-    <SolidColorBrush x:Key="Button.Background.Normal.Top" Color="{DynamicResource White}"/>
-    <SolidColorBrush x:Key="Button.Background.Normal.Bottom" Color="{DynamicResource White}"/>
+    <SolidColorBrush x:Key="Button.Background.Normal.Top" Color="{DynamicResource WhiteMedium}"/>
+    <SolidColorBrush x:Key="Button.Background.Normal.Bottom" Color="{DynamicResource WhiteMedium}"/>
     <SolidColorBrush x:Key="Button.Background.MouseOver" Color="{DynamicResource Black}"/>
     <SolidColorBrush x:Key="Button.Background.Pressed" Color="{DynamicResource Black}"/>
     <SolidColorBrush x:Key="Button.Focus.Stroke" Color="{DynamicResource White}"/>
@@ -41,7 +41,6 @@
         <Setter Property="BorderThickness" Value="2" />
         <Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}" />
         <Setter Property="Foreground" Value="{StaticResource Button.Foreground.Normal}" />
-        <Setter Property="FontSize" Value="14" />
         <Setter Property="Margin" Value="5" />
         <Setter Property="MinHeight" Value="25" />
         <Setter Property="OverridesDefaultStyle" Value="true" />

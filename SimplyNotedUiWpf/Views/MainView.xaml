@@ -7,7 +7,8 @@
         xmlns:r="clr-namespace:SimplyNotedUiWpf.Properties"
         xmlns:local="clr-namespace:SimplyNotedUiWpf.Views"
         mc:Ignorable="d"
-        Title="{x:Static r:Literals.MainView_Title}" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="{x:Static r:Literals.MainView_Title}" Height="450" Width="800" WindowStartupLocation="CenterScreen"
+        Style="{DynamicResource ResourceKey=WindowDefaultStyle}">
     <Window.DataContext>
         <vm:MainViewModel />
     </Window.DataContext>
