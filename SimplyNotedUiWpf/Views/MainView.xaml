@@ -83,9 +83,9 @@
                     <ColumnDefinition Width="3*" />
                 </Grid.ColumnDefinitions>
                 <Label Grid.Row="0" Grid.Column="0" Content="{x:Static r:Literals.MainView_Note_CreatedLabel_Content}" />
-                <Label Grid.Row="0" Grid.Column="1" Content="{Binding CurrentNoteModel.CreatedAt}" ContentStringFormat="dd.M.yyyy HH:mm:ss" />
+                <Label Grid.Row="0" Grid.Column="1" Content="{Binding CurrentNoteModel.CreatedAt}" ContentStringFormat="dd.MM.yyyy HH:mm:ss" />
                 <Label Grid.Row="1" Grid.Column="0" Content="{x:Static r:Literals.MainView_Note_ModifiedLabel_Content}" />
-                <Label Grid.Row="1" Grid.Column="1" Content="{Binding CurrentNoteModel.ModifiedAt}" ContentStringFormat="dd.M.yyyy HH:mm:ss" />
+                <Label Grid.Row="1" Grid.Column="1" Content="{Binding CurrentNoteModel.ModifiedAt}" ContentStringFormat="dd.MM.yyyy HH:mm:ss" />
             </Grid>
             <TextBox Grid.Row="2" Text="{Binding CurrentNoteModel.Content}" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Margin="5" TextWrapping="Wrap" />
             <Grid Grid.Row="3">
