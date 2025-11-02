@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Color x:Key="Black">#62676B</Color>
+    <Color x:Key="Black">#1D1F20</Color>
     <Color x:Key="Gray">#A5A5A5</Color>
     <Color x:Key="White">#E5E3D6</Color>
     <Color x:Key="WhiteDark">#D9CDBD</Color>

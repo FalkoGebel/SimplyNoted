@@ -8,13 +8,13 @@
     <SolidColorBrush x:Key="Button.Border.Cancel" Color="{DynamicResource Black}"/>
     <SolidColorBrush x:Key="Button.Border.Default" Color="{DynamicResource Black}"/>
     <SolidColorBrush x:Key="Button.Border.Disabled" Color="{DynamicResource White}"/>
-    <SolidColorBrush x:Key="Button.Border.Normal" Color="{DynamicResource Black}"/>
+    <SolidColorBrush x:Key="Button.Border.Normal" Color="{DynamicResource Gray}"/>
     <SolidColorBrush x:Key="Button.Background.Disabled" Color="{DynamicResource WhiteMedium}"/>
     <SolidColorBrush x:Key="Button.Background.Normal.Top" Color="{DynamicResource WhiteMedium}"/>
     <SolidColorBrush x:Key="Button.Background.Normal.Bottom" Color="{DynamicResource WhiteMedium}"/>
     <SolidColorBrush x:Key="Button.Background.MouseOver" Color="{DynamicResource Black}"/>
     <SolidColorBrush x:Key="Button.Background.Pressed" Color="{DynamicResource Black}"/>
-    <SolidColorBrush x:Key="Button.Focus.Stroke" Color="{DynamicResource White}"/>
+    <SolidColorBrush x:Key="Button.Focus.Stroke" Color="{DynamicResource Gray}"/>
     <SolidColorBrush x:Key="Button.Foreground.MouseOver" Color="{DynamicResource White}"/>
     <SolidColorBrush x:Key="Button.Foreground.Normal" Color="{DynamicResource Black}"/>
     <SolidColorBrush x:Key="Button.Foreground.Pressed" Color="{DynamicResource White}"/>
