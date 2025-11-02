@@ -9,7 +9,7 @@
     <SolidColorBrush x:Key="Button.Border.Default" Color="{DynamicResource Black}"/>
     <SolidColorBrush x:Key="Button.Border.Disabled" Color="{DynamicResource White}"/>
     <SolidColorBrush x:Key="Button.Border.Normal" Color="{DynamicResource Black}"/>
-    <SolidColorBrush x:Key="Button.Background.Disabled" Color="{DynamicResource White}"/>
+    <SolidColorBrush x:Key="Button.Background.Disabled" Color="{DynamicResource WhiteMedium}"/>
     <SolidColorBrush x:Key="Button.Background.Normal.Top" Color="{DynamicResource WhiteMedium}"/>
     <SolidColorBrush x:Key="Button.Background.Normal.Bottom" Color="{DynamicResource WhiteMedium}"/>
     <SolidColorBrush x:Key="Button.Background.MouseOver" Color="{DynamicResource Black}"/>
