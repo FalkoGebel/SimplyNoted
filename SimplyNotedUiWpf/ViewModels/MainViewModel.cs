@@ -46,6 +46,18 @@ namespace SimplyNotedUiWpf.ViewModels
         [ObservableProperty]
         private bool _notesSortingTitleDescendingCheckmarkVisible;
 
+        [ObservableProperty]
+        private bool _titleTextBoxIsEnabled;
+
+        [ObservableProperty]
+        private bool _contentTextBoxIsEnabled;
+
+        [ObservableProperty]
+        private bool _deleteButtonIsEnabled;
+
+        [ObservableProperty]
+        private bool _saveButtonIsEnabled;
+
         [RelayCommand]
         private void NewNote()
         {
@@ -156,6 +168,14 @@ namespace SimplyNotedUiWpf.ViewModels
                 ModifiedAt = value.ModifiedAt,
                 Content = value.Content
             };
+        }
+
+        partial void OnCurrentNoteModelChanged(NoteModel? value)
+        {
+            TitleTextBoxIsEnabled = value != null;
+            ContentTextBoxIsEnabled = value != null;
+            DeleteButtonIsEnabled = value != null;
+            SaveButtonIsEnabled = value != null;
         }
 
         private void UpdateNotesFromFile()

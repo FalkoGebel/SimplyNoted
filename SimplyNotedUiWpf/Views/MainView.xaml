@@ -72,7 +72,7 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="40" />
             </Grid.RowDefinitions>
-            <TextBox Grid.Row="0" Text="{Binding CurrentNoteModel.Title}" FontSize="24" FontWeight="Bold" Margin="5" />
+            <TextBox Grid.Row="0" Text="{Binding CurrentNoteModel.Title}" FontSize="24" FontWeight="Bold" Margin="5" IsEnabled="{Binding TitleTextBoxIsEnabled}" />
             <Grid Grid.Row="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
@@ -87,14 +87,14 @@
                 <Label Grid.Row="1" Grid.Column="0" Content="{x:Static r:Literals.MainView_Note_ModifiedLabel_Content}" />
                 <Label Grid.Row="1" Grid.Column="1" Content="{Binding CurrentNoteModel.ModifiedAt}" ContentStringFormat="dd.MM.yyyy HH:mm:ss" />
             </Grid>
-            <TextBox Grid.Row="2" Text="{Binding CurrentNoteModel.Content}" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Margin="5" TextWrapping="Wrap" />
+            <TextBox Grid.Row="2" Text="{Binding CurrentNoteModel.Content}" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Margin="5" TextWrapping="Wrap" IsEnabled="{Binding ContentTextBoxIsEnabled}" />
             <Grid Grid.Row="3">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="3*" />
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Content="{x:Static r:Literals.MainView_DeleteNoteButton_Content}" Command="{Binding DeleteNoteCommand}" />
-                <Button Grid.Column="1" Content="{x:Static r:Literals.MainView_SaveNoteButton_Content}" Command="{Binding SaveNoteCommand}" />
+                <Button Grid.Column="0" Content="{x:Static r:Literals.MainView_DeleteNoteButton_Content}" Command="{Binding DeleteNoteCommand}" IsEnabled="{Binding DeleteButtonIsEnabled}"/>
+                <Button Grid.Column="1" Content="{x:Static r:Literals.MainView_SaveNoteButton_Content}" Command="{Binding SaveNoteCommand}" IsEnabled="{Binding SaveButtonIsEnabled}" />
             </Grid>
         </Grid>
     </Grid>
