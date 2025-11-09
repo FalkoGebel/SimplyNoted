@@ -126,8 +126,14 @@
   <data name="MainViewModel_NewNote_DefaultTitle" xml:space="preserve">
     <value>New Note</value>
   </data>
+  <data name="MainView_CloseButton_Content" xml:space="preserve">
+    <value>X</value>
+  </data>
   <data name="MainView_DeleteNoteButton_Content" xml:space="preserve">
     <value>Delete</value>
+  </data>
+  <data name="MainView_MinimizeButton_Content" xml:space="preserve">
+    <value>―</value>
   </data>
   <data name="MainView_NewNoteButton_Content" xml:space="preserve">
     <value>New</value>

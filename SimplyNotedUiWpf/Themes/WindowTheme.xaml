@@ -6,6 +6,7 @@
     </ResourceDictionary.MergedDictionaries>
 
     <!-- Colors -->
+    <SolidColorBrush x:Key="DockPanel.Background.Special" Color="{DynamicResource WhiteMedium}"/>
     <SolidColorBrush x:Key="Window.Background" Color="{DynamicResource White}"/>
     <SolidColorBrush x:Key="Window.Foreground" Color="{DynamicResource Black}"/>
 

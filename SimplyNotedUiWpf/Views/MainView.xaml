@@ -7,95 +7,110 @@
         xmlns:r="clr-namespace:SimplyNotedUiWpf.Properties"
         xmlns:local="clr-namespace:SimplyNotedUiWpf.Views"
         mc:Ignorable="d"
-        Title="{x:Static r:Literals.MainView_Title}" Height="450" Width="800" WindowStartupLocation="CenterScreen"
-        Style="{DynamicResource ResourceKey=WindowDefaultStyle}">
+        Height="450" Width="800" WindowStartupLocation="CenterScreen"
+        Style="{DynamicResource ResourceKey=WindowDefaultStyle}"
+        Title="{x:Static r:Literals.MainView_Title}">
+    <WindowChrome.WindowChrome>
+        <WindowChrome 
+            CaptionHeight="0"
+            CornerRadius="0"
+            GlassFrameThickness="0"
+            ResizeBorderThickness="5" />
+    </WindowChrome.WindowChrome>
     <Window.DataContext>
         <vm:MainViewModel />
     </Window.DataContext>
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="b2v" />
     </Window.Resources>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="5" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="40" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-            <Button Grid.Row="0" Content="{x:Static r:Literals.MainView_NewNoteButton_Content}" Command="{Binding NewNoteCommand}" />
-            <ListBox Grid.Row="1" ItemsSource="{Binding NoteModels}" DisplayMemberPath="Title" SelectedItem="{Binding SelectedNoteModel}">
-                <ListBox.ContextMenu>
-                    <ContextMenu>
-                        <MenuItem Header="{x:Static r:Literals.MainView_NoteList_ContextMenu_Sorting_CreatedOldest}" Command="{Binding UpdateNoteSortingCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}">
-                            <MenuItem.Icon>
-                                <Path Visibility="{Binding Path=NotesSortingCreatedOldestCheckmarkVisible, Converter={StaticResource b2v}}" Width="11" Height="11" SnapsToDevicePixels="False" Stroke="Black" StrokeThickness="2" Data="M 2,4 C 2,4 3,5 5,13 C 5,13 5,3 12,0" />
-                            </MenuItem.Icon>
-                        </MenuItem>
-                        <MenuItem Header="{x:Static r:Literals.MainView_NoteList_ContextMenu_Sorting_CreatedLatest}" Command="{Binding UpdateNoteSortingCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}">
-                            <MenuItem.Icon>
-                                <Path Visibility="{Binding Path=NotesSortingCreatedLatestCheckmarkVisible, Converter={StaticResource b2v}}" Width="11" Height="11" SnapsToDevicePixels="False" Stroke="Black" StrokeThickness="2" Data="M 2,4 C 2,4 3,5 5,13 C 5,13 5,3 12,0" />
-                            </MenuItem.Icon>
-                        </MenuItem>
-                        <MenuItem Header="{x:Static r:Literals.MainView_NoteList_ContextMenu_Sorting_ModifiedOldest}" Command="{Binding UpdateNoteSortingCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}">
-                            <MenuItem.Icon>
-                                <Path Visibility="{Binding Path=NotesSortingModifiedOldestCheckmarkVisible, Converter={StaticResource b2v}}" Width="11" Height="11" SnapsToDevicePixels="False" Stroke="Black" StrokeThickness="2" Data="M 2,4 C 2,4 3,5 5,13 C 5,13 5,3 12,0" />
-                            </MenuItem.Icon>
-                        </MenuItem>
-                        <MenuItem Header="{x:Static r:Literals.MainView_NoteList_ContextMenu_Sorting_ModifiedLatest}" Command="{Binding UpdateNoteSortingCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}">
-                            <MenuItem.Icon>
-                                <Path Visibility="{Binding Path=NotesSortingModifiedLatestCheckmarkVisible, Converter={StaticResource b2v}}" Width="11" Height="11" SnapsToDevicePixels="False" Stroke="Black" StrokeThickness="2" Data="M 2,4 C 2,4 3,5 5,13 C 5,13 5,3 12,0" />
-                            </MenuItem.Icon>
-                        </MenuItem>
-                        <MenuItem Header="{x:Static r:Literals.MainView_NoteList_ContextMenu_Sorting_TitleAscending}" Command="{Binding UpdateNoteSortingCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}">
-                            <MenuItem.Icon>
-                                <Path Visibility="{Binding Path=NotesSortingTitleAscendingCheckmarkVisible, Converter={StaticResource b2v}}" Width="11" Height="11" SnapsToDevicePixels="False" Stroke="Black" StrokeThickness="2" Data="M 2,4 C 2,4 3,5 5,13 C 5,13 5,3 12,0" />
-                            </MenuItem.Icon>
-                        </MenuItem>
-                        <MenuItem Header="{x:Static r:Literals.MainView_NoteList_ContextMenu_Sorting_TitleDescending}" Command="{Binding UpdateNoteSortingCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}">
-                            <MenuItem.Icon>
-                                <Path Visibility="{Binding Path=NotesSortingTitleDescendingCheckmarkVisible, Converter={StaticResource b2v}}" Width="11" Height="11" SnapsToDevicePixels="False" Stroke="Black" StrokeThickness="2" Data="M 2,4 C 2,4 3,5 5,13 C 5,13 5,3 12,0" />
-                            </MenuItem.Icon>
-                        </MenuItem>
-                    </ContextMenu>
-                </ListBox.ContextMenu>
-            </ListBox>
-        </Grid>
-        <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
-        <Grid Grid.Column="2">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="50" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="40" />
-            </Grid.RowDefinitions>
-            <TextBox Grid.Row="0" Text="{Binding CurrentNoteModel.Title}" FontSize="24" FontWeight="Bold" Margin="5" IsEnabled="{Binding TitleTextBoxIsEnabled}" />
-            <Grid Grid.Row="1">
+    <DockPanel>
+        <DockPanel DockPanel.Dock="Top" Background="{DynamicResource DockPanel.Background.Special}">
+            <Button DockPanel.Dock="Right" Content="{x:Static r:Literals.MainView_CloseButton_Content}" Width="30" Margin="1,5,5,5" Click="ExitButton_Click"/>
+            <Button DockPanel.Dock="Right" Content="{x:Static r:Literals.MainView_MinimizeButton_Content}" Width="30" Margin="1,5,1,5" Click="MinimizeButton_Click" />
+            <Label DockPanel.Dock="Left" Content="{x:Static r:Literals.MainView_Title}" Style="{StaticResource HeaderLabelStyle}" MouseDown="HeaderLabel_MouseDown" />
+        </DockPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
+                    <RowDefinition Height="40" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="3*" />
-                </Grid.ColumnDefinitions>
-                <Label Grid.Row="0" Grid.Column="0" Content="{x:Static r:Literals.MainView_Note_CreatedLabel_Content}" />
-                <Label Grid.Row="0" Grid.Column="1" Content="{Binding CurrentNoteModel.CreatedAt}" ContentStringFormat="dd.MM.yyyy HH:mm:ss" />
-                <Label Grid.Row="1" Grid.Column="0" Content="{x:Static r:Literals.MainView_Note_ModifiedLabel_Content}" />
-                <Label Grid.Row="1" Grid.Column="1" Content="{Binding CurrentNoteModel.ModifiedAt}" ContentStringFormat="dd.MM.yyyy HH:mm:ss" />
+                <Button Grid.Row="0" Content="{x:Static r:Literals.MainView_NewNoteButton_Content}" Command="{Binding NewNoteCommand}" />
+                <ListBox Grid.Row="1" ItemsSource="{Binding NoteModels}" DisplayMemberPath="Title" SelectedItem="{Binding SelectedNoteModel}">
+                    <ListBox.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="{x:Static r:Literals.MainView_NoteList_ContextMenu_Sorting_CreatedOldest}" Command="{Binding UpdateNoteSortingCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}">
+                                <MenuItem.Icon>
+                                    <Path Visibility="{Binding Path=NotesSortingCreatedOldestCheckmarkVisible, Converter={StaticResource b2v}}" Width="11" Height="11" SnapsToDevicePixels="False" Stroke="Black" StrokeThickness="2" Data="M 2,4 C 2,4 3,5 5,13 C 5,13 5,3 12,0" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="{x:Static r:Literals.MainView_NoteList_ContextMenu_Sorting_CreatedLatest}" Command="{Binding UpdateNoteSortingCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}">
+                                <MenuItem.Icon>
+                                    <Path Visibility="{Binding Path=NotesSortingCreatedLatestCheckmarkVisible, Converter={StaticResource b2v}}" Width="11" Height="11" SnapsToDevicePixels="False" Stroke="Black" StrokeThickness="2" Data="M 2,4 C 2,4 3,5 5,13 C 5,13 5,3 12,0" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="{x:Static r:Literals.MainView_NoteList_ContextMenu_Sorting_ModifiedOldest}" Command="{Binding UpdateNoteSortingCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}">
+                                <MenuItem.Icon>
+                                    <Path Visibility="{Binding Path=NotesSortingModifiedOldestCheckmarkVisible, Converter={StaticResource b2v}}" Width="11" Height="11" SnapsToDevicePixels="False" Stroke="Black" StrokeThickness="2" Data="M 2,4 C 2,4 3,5 5,13 C 5,13 5,3 12,0" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="{x:Static r:Literals.MainView_NoteList_ContextMenu_Sorting_ModifiedLatest}" Command="{Binding UpdateNoteSortingCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}">
+                                <MenuItem.Icon>
+                                    <Path Visibility="{Binding Path=NotesSortingModifiedLatestCheckmarkVisible, Converter={StaticResource b2v}}" Width="11" Height="11" SnapsToDevicePixels="False" Stroke="Black" StrokeThickness="2" Data="M 2,4 C 2,4 3,5 5,13 C 5,13 5,3 12,0" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="{x:Static r:Literals.MainView_NoteList_ContextMenu_Sorting_TitleAscending}" Command="{Binding UpdateNoteSortingCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}">
+                                <MenuItem.Icon>
+                                    <Path Visibility="{Binding Path=NotesSortingTitleAscendingCheckmarkVisible, Converter={StaticResource b2v}}" Width="11" Height="11" SnapsToDevicePixels="False" Stroke="Black" StrokeThickness="2" Data="M 2,4 C 2,4 3,5 5,13 C 5,13 5,3 12,0" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="{x:Static r:Literals.MainView_NoteList_ContextMenu_Sorting_TitleDescending}" Command="{Binding UpdateNoteSortingCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}">
+                                <MenuItem.Icon>
+                                    <Path Visibility="{Binding Path=NotesSortingTitleDescendingCheckmarkVisible, Converter={StaticResource b2v}}" Width="11" Height="11" SnapsToDevicePixels="False" Stroke="Black" StrokeThickness="2" Data="M 2,4 C 2,4 3,5 5,13 C 5,13 5,3 12,0" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </ContextMenu>
+                    </ListBox.ContextMenu>
+                </ListBox>
             </Grid>
-            <TextBox Grid.Row="2" Text="{Binding CurrentNoteModel.Content}" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Margin="5" TextWrapping="Wrap" IsEnabled="{Binding ContentTextBoxIsEnabled}" />
-            <Grid Grid.Row="3">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="3*" />
-                </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Content="{x:Static r:Literals.MainView_DeleteNoteButton_Content}" Command="{Binding DeleteNoteCommand}" IsEnabled="{Binding DeleteButtonIsEnabled}"/>
-                <Button Grid.Column="1" Content="{x:Static r:Literals.MainView_SaveNoteButton_Content}" Command="{Binding SaveNoteCommand}" IsEnabled="{Binding SaveButtonIsEnabled}" />
+            <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
+                <TextBox Grid.Row="0" Text="{Binding CurrentNoteModel.Title}" FontSize="24" FontWeight="Bold" Margin="5" IsEnabled="{Binding TitleTextBoxIsEnabled}" />
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="3*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Content="{x:Static r:Literals.MainView_Note_CreatedLabel_Content}" />
+                    <Label Grid.Row="0" Grid.Column="1" Content="{Binding CurrentNoteModel.CreatedAt}" ContentStringFormat="dd.MM.yyyy HH:mm:ss" />
+                    <Label Grid.Row="1" Grid.Column="0" Content="{x:Static r:Literals.MainView_Note_ModifiedLabel_Content}" />
+                    <Label Grid.Row="1" Grid.Column="1" Content="{Binding CurrentNoteModel.ModifiedAt}" ContentStringFormat="dd.MM.yyyy HH:mm:ss" />
+                </Grid>
+                <TextBox Grid.Row="2" Text="{Binding CurrentNoteModel.Content}" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Margin="5" TextWrapping="Wrap" IsEnabled="{Binding ContentTextBoxIsEnabled}" />
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="3*" />
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" Content="{x:Static r:Literals.MainView_DeleteNoteButton_Content}" Command="{Binding DeleteNoteCommand}" IsEnabled="{Binding DeleteButtonIsEnabled}"/>
+                    <Button Grid.Column="1" Content="{x:Static r:Literals.MainView_SaveNoteButton_Content}" Command="{Binding SaveNoteCommand}" IsEnabled="{Binding SaveButtonIsEnabled}" />
+                </Grid>
             </Grid>
         </Grid>
-    </Grid>
+    </DockPanel>
 </Window>
