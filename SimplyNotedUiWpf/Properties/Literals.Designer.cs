@@ -61,11 +61,29 @@ namespace SimplyNotedUiWpf.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die X ähnelt.
+        /// </summary>
+        public static string MainView_CloseButton_Content {
+            get {
+                return ResourceManager.GetString("MainView_CloseButton_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Delete ähnelt.
         /// </summary>
         public static string MainView_DeleteNoteButton_Content {
             get {
                 return ResourceManager.GetString("MainView_DeleteNoteButton_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ― ähnelt.
+        /// </summary>
+        public static string MainView_MinimizeButton_Content {
+            get {
+                return ResourceManager.GetString("MainView_MinimizeButton_Content", resourceCulture);
             }
         }
         
