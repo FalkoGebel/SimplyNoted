@@ -11,7 +11,7 @@
         Style="{DynamicResource ResourceKey=WindowDefaultStyle}"
         Title="{x:Static r:Literals.MainView_Title}">
     <WindowChrome.WindowChrome>
-        <WindowChrome 
+        <WindowChrome
             CaptionHeight="0"
             CornerRadius="0"
             GlassFrameThickness="0"
@@ -25,8 +25,10 @@
     </Window.Resources>
     <DockPanel>
         <DockPanel DockPanel.Dock="Top" Background="{DynamicResource DockPanel.Background.Special}">
-            <Button DockPanel.Dock="Right" Content="{x:Static r:Literals.MainView_CloseButton_Content}" Width="30" Margin="1,5,5,5" Click="ExitButton_Click"/>
-            <Button DockPanel.Dock="Right" Content="{x:Static r:Literals.MainView_MinimizeButton_Content}" Width="30" Margin="1,5,1,5" Click="MinimizeButton_Click" />
+            <Button DockPanel.Dock="Right" Content="{x:Static r:Literals.MainView_CloseButton_Content}" ToolTip="{x:Static r:Literals.MainView_CloseButton_ToolTip}" Width="30" Margin="1,5,5,5" Click="ExitButton_Click"/>
+            <Button x:Name="MaximizeButton" DockPanel.Dock="Right" Content="{x:Static r:Literals.MainView_MaximizeButton_Content}" ToolTip="{x:Static r:Literals.MainView_MaximizeButton_ToolTip}" Width="30" Margin="1,5,1,5" Click="MaximizeButton_Click" />
+            <Button x:Name="RestoreButton" DockPanel.Dock="Right" Content="{x:Static r:Literals.MainView_RestoreButton_Content}" ToolTip="{x:Static r:Literals.MainView_RestoreButton_ToolTip}" Width="30" Margin="1,5,1,5" Visibility="Collapsed" Click="RestoreButton_Click"/>
+            <Button DockPanel.Dock="Right" Content="{x:Static r:Literals.MainView_MinimizeButton_Content}" ToolTip="{x:Static r:Literals.MainView_MinimizeButton_ToolTip}" Width="30" Margin="1,5,1,5" Click="MinimizeButton_Click" />
             <Label DockPanel.Dock="Left" Content="{x:Static r:Literals.MainView_Title}" Style="{StaticResource HeaderLabelStyle}" MouseDown="HeaderLabel_MouseDown" />
         </DockPanel>
         <Grid>
@@ -41,7 +43,7 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <Button Grid.Row="0" Content="{x:Static r:Literals.MainView_NewNoteButton_Content}" Command="{Binding NewNoteCommand}" />
-                <ListBox Grid.Row="1" ItemsSource="{Binding NoteModels}" DisplayMemberPath="Title" SelectedItem="{Binding SelectedNoteModel}">
+                <ListBox Grid.Row="1" ItemsSource="{Binding NoteModels}" DisplayMemberPath="Title" SelectedItem="{Binding SelectedNoteModel}" ToolTip="{x:Static r:Literals.MainView_ListBox_ToolTip}">
                     <ListBox.ContextMenu>
                         <ContextMenu>
                             <MenuItem Header="{x:Static r:Literals.MainView_NoteList_ContextMenu_Sorting_CreatedOldest}" Command="{Binding UpdateNoteSortingCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}">

@@ -70,6 +70,15 @@ namespace SimplyNotedUiWpf.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Exit ähnelt.
+        /// </summary>
+        public static string MainView_CloseButton_ToolTip {
+            get {
+                return ResourceManager.GetString("MainView_CloseButton_ToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Delete ähnelt.
         /// </summary>
         public static string MainView_DeleteNoteButton_Content {
@@ -79,11 +88,47 @@ namespace SimplyNotedUiWpf.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Sort using context menu ähnelt.
+        /// </summary>
+        public static string MainView_ListBox_ToolTip {
+            get {
+                return ResourceManager.GetString("MainView_ListBox_ToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ◻ ähnelt.
+        /// </summary>
+        public static string MainView_MaximizeButton_Content {
+            get {
+                return ResourceManager.GetString("MainView_MaximizeButton_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Maximize ähnelt.
+        /// </summary>
+        public static string MainView_MaximizeButton_ToolTip {
+            get {
+                return ResourceManager.GetString("MainView_MaximizeButton_ToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die ― ähnelt.
         /// </summary>
         public static string MainView_MinimizeButton_Content {
             get {
                 return ResourceManager.GetString("MainView_MinimizeButton_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Minimize ähnelt.
+        /// </summary>
+        public static string MainView_MinimizeButton_ToolTip {
+            get {
+                return ResourceManager.GetString("MainView_MinimizeButton_ToolTip", resourceCulture);
             }
         }
         
@@ -165,6 +210,24 @@ namespace SimplyNotedUiWpf.Properties {
         public static string MainView_NoteList_ContextMenu_Sorting_TitleDescending {
             get {
                 return ResourceManager.GetString("MainView_NoteList_ContextMenu_Sorting_TitleDescending", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ◱ ähnelt.
+        /// </summary>
+        public static string MainView_RestoreButton_Content {
+            get {
+                return ResourceManager.GetString("MainView_RestoreButton_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Restore ähnelt.
+        /// </summary>
+        public static string MainView_RestoreButton_ToolTip {
+            get {
+                return ResourceManager.GetString("MainView_RestoreButton_ToolTip", resourceCulture);
             }
         }
         

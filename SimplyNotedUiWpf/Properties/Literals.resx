@@ -129,11 +129,26 @@
   <data name="MainView_CloseButton_Content" xml:space="preserve">
     <value>X</value>
   </data>
+  <data name="MainView_CloseButton_ToolTip" xml:space="preserve">
+    <value>Exit</value>
+  </data>
   <data name="MainView_DeleteNoteButton_Content" xml:space="preserve">
     <value>Delete</value>
   </data>
+  <data name="MainView_ListBox_ToolTip" xml:space="preserve">
+    <value>Sort using context menu</value>
+  </data>
+  <data name="MainView_MaximizeButton_Content" xml:space="preserve">
+    <value>◻</value>
+  </data>
+  <data name="MainView_MaximizeButton_ToolTip" xml:space="preserve">
+    <value>Maximize</value>
+  </data>
   <data name="MainView_MinimizeButton_Content" xml:space="preserve">
     <value>―</value>
+  </data>
+  <data name="MainView_MinimizeButton_ToolTip" xml:space="preserve">
+    <value>Minimize</value>
   </data>
   <data name="MainView_NewNoteButton_Content" xml:space="preserve">
     <value>New</value>
@@ -161,6 +176,12 @@
   </data>
   <data name="MainView_Note_ModifiedLabel_Content" xml:space="preserve">
     <value>Modified:</value>
+  </data>
+  <data name="MainView_RestoreButton_Content" xml:space="preserve">
+    <value>◱</value>
+  </data>
+  <data name="MainView_RestoreButton_ToolTip" xml:space="preserve">
+    <value>Restore</value>
   </data>
   <data name="MainView_SaveNoteButton_Content" xml:space="preserve">
     <value>Save</value>
