@@ -46,36 +46,12 @@
                 <ListBox Grid.Row="1" ItemsSource="{Binding NoteModels}" DisplayMemberPath="Title" SelectedItem="{Binding SelectedNoteModel}" ToolTip="{x:Static r:Literals.MainView_ListBox_ToolTip}">
                     <ListBox.ContextMenu>
                         <ContextMenu>
-                            <MenuItem Header="{x:Static r:Literals.MainView_NoteList_ContextMenu_Sorting_CreatedOldest}" Command="{Binding UpdateNoteSortingCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}">
-                                <MenuItem.Icon>
-                                    <Path Visibility="{Binding Path=NotesSortingCreatedOldestCheckmarkVisible, Converter={StaticResource b2v}}" Width="11" Height="11" SnapsToDevicePixels="False" Stroke="Black" StrokeThickness="2" Data="M 2,4 C 2,4 3,5 5,13 C 5,13 5,3 12,0" />
-                                </MenuItem.Icon>
-                            </MenuItem>
-                            <MenuItem Header="{x:Static r:Literals.MainView_NoteList_ContextMenu_Sorting_CreatedLatest}" Command="{Binding UpdateNoteSortingCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}">
-                                <MenuItem.Icon>
-                                    <Path Visibility="{Binding Path=NotesSortingCreatedLatestCheckmarkVisible, Converter={StaticResource b2v}}" Width="11" Height="11" SnapsToDevicePixels="False" Stroke="Black" StrokeThickness="2" Data="M 2,4 C 2,4 3,5 5,13 C 5,13 5,3 12,0" />
-                                </MenuItem.Icon>
-                            </MenuItem>
-                            <MenuItem Header="{x:Static r:Literals.MainView_NoteList_ContextMenu_Sorting_ModifiedOldest}" Command="{Binding UpdateNoteSortingCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}">
-                                <MenuItem.Icon>
-                                    <Path Visibility="{Binding Path=NotesSortingModifiedOldestCheckmarkVisible, Converter={StaticResource b2v}}" Width="11" Height="11" SnapsToDevicePixels="False" Stroke="Black" StrokeThickness="2" Data="M 2,4 C 2,4 3,5 5,13 C 5,13 5,3 12,0" />
-                                </MenuItem.Icon>
-                            </MenuItem>
-                            <MenuItem Header="{x:Static r:Literals.MainView_NoteList_ContextMenu_Sorting_ModifiedLatest}" Command="{Binding UpdateNoteSortingCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}">
-                                <MenuItem.Icon>
-                                    <Path Visibility="{Binding Path=NotesSortingModifiedLatestCheckmarkVisible, Converter={StaticResource b2v}}" Width="11" Height="11" SnapsToDevicePixels="False" Stroke="Black" StrokeThickness="2" Data="M 2,4 C 2,4 3,5 5,13 C 5,13 5,3 12,0" />
-                                </MenuItem.Icon>
-                            </MenuItem>
-                            <MenuItem Header="{x:Static r:Literals.MainView_NoteList_ContextMenu_Sorting_TitleAscending}" Command="{Binding UpdateNoteSortingCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}">
-                                <MenuItem.Icon>
-                                    <Path Visibility="{Binding Path=NotesSortingTitleAscendingCheckmarkVisible, Converter={StaticResource b2v}}" Width="11" Height="11" SnapsToDevicePixels="False" Stroke="Black" StrokeThickness="2" Data="M 2,4 C 2,4 3,5 5,13 C 5,13 5,3 12,0" />
-                                </MenuItem.Icon>
-                            </MenuItem>
-                            <MenuItem Header="{x:Static r:Literals.MainView_NoteList_ContextMenu_Sorting_TitleDescending}" Command="{Binding UpdateNoteSortingCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}">
-                                <MenuItem.Icon>
-                                    <Path Visibility="{Binding Path=NotesSortingTitleDescendingCheckmarkVisible, Converter={StaticResource b2v}}" Width="11" Height="11" SnapsToDevicePixels="False" Stroke="Black" StrokeThickness="2" Data="M 2,4 C 2,4 3,5 5,13 C 5,13 5,3 12,0" />
-                                </MenuItem.Icon>
-                            </MenuItem>
+                            <MenuItem Template="{StaticResource MenuItemStyle}" Header="{x:Static r:Literals.MainView_NoteList_ContextMenu_Sorting_CreatedOldest}" Command="{Binding UpdateNoteSortingCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}" IsChecked="{Binding NotesSortingCreatedOldestCheckmarkVisible}"/>
+                            <MenuItem Template="{StaticResource MenuItemStyle}" Header="{x:Static r:Literals.MainView_NoteList_ContextMenu_Sorting_CreatedLatest}" Command="{Binding UpdateNoteSortingCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}" IsChecked="{Binding NotesSortingCreatedLatestCheckmarkVisible}"/>
+                            <MenuItem Template="{StaticResource MenuItemStyle}" Header="{x:Static r:Literals.MainView_NoteList_ContextMenu_Sorting_ModifiedOldest}" Command="{Binding UpdateNoteSortingCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}" IsChecked="{Binding NotesSortingModifiedOldestCheckmarkVisible}"/>
+                            <MenuItem Template="{StaticResource MenuItemStyle}" Header="{x:Static r:Literals.MainView_NoteList_ContextMenu_Sorting_ModifiedLatest}" Command="{Binding UpdateNoteSortingCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}" IsChecked="{Binding NotesSortingModifiedLatestCheckmarkVisible}"/>
+                            <MenuItem Template="{StaticResource MenuItemStyle}" Header="{x:Static r:Literals.MainView_NoteList_ContextMenu_Sorting_TitleAscending}" Command="{Binding UpdateNoteSortingCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}" IsChecked="{Binding NotesSortingTitleAscendingCheckmarkVisible}"/>
+                            <MenuItem Template="{StaticResource MenuItemStyle}" Header="{x:Static r:Literals.MainView_NoteList_ContextMenu_Sorting_TitleDescending}" Command="{Binding UpdateNoteSortingCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}" IsChecked="{Binding NotesSortingTitleDescendingCheckmarkVisible}"/>
                         </ContextMenu>
                     </ListBox.ContextMenu>
                 </ListBox>
