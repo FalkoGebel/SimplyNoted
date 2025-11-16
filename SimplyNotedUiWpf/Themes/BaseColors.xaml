@@ -3,6 +3,6 @@
     <Color x:Key="Black">#1D1F20</Color>
     <Color x:Key="Gray">#A5A5A5</Color>
     <Color x:Key="White">#E5E3D6</Color>
-    <Color x:Key="WhiteDark">#D9CDBD</Color>
+    <Color x:Key="WhiteDark">#998D83</Color>
     <Color x:Key="WhiteMedium">#DBC9BB</Color>
 </ResourceDictionary>

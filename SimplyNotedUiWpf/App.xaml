@@ -12,6 +12,7 @@
                 <ResourceDictionary Source="Themes/LabelTheme.xaml" />
                 <ResourceDictionary Source="Themes/ListBoxTheme.xaml" />
                 <ResourceDictionary Source="Themes/TextBoxTheme.xaml" />
+                <ResourceDictionary Source="Themes/ToolTipTheme.xaml" />
                 <ResourceDictionary Source="Themes/WindowTheme.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
