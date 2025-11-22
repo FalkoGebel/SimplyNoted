@@ -6,6 +6,8 @@
         xmlns:vm="clr-namespace:SimplyNotedUiWpf.ViewModels"
         xmlns:r="clr-namespace:SimplyNotedUiWpf.Properties"
         xmlns:local="clr-namespace:SimplyNotedUiWpf.Views"
+        xmlns:l="clr-namespace:SimplyNotedUiWpf.Logic"
+        d:DataContext="{d:DesignInstance Type=vm:MainViewModel}"
         mc:Ignorable="d"
         Height="450" Width="800" WindowStartupLocation="CenterScreen"
         Style="{DynamicResource ResourceKey=WindowDefaultStyle}"
@@ -17,19 +19,16 @@
             GlassFrameThickness="0"
             ResizeBorderThickness="5" />
     </WindowChrome.WindowChrome>
-    <Window.DataContext>
-        <vm:MainViewModel />
-    </Window.DataContext>
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="b2v" />
     </Window.Resources>
     <DockPanel>
         <DockPanel DockPanel.Dock="Top" Background="{DynamicResource DockPanel.Background.Special}">
-            <Button DockPanel.Dock="Right" Content="{x:Static r:Literals.MainView_CloseButton_Content}" ToolTip="{x:Static r:Literals.MainView_CloseButton_ToolTip}" Width="30" Margin="1,5,5,5" Click="ExitButton_Click"/>
-            <Button x:Name="MaximizeButton" DockPanel.Dock="Right" Content="{x:Static r:Literals.MainView_MaximizeButton_Content}" ToolTip="{x:Static r:Literals.MainView_MaximizeButton_ToolTip}" Width="30" Margin="1,5,1,5" Click="MaximizeButton_Click" />
-            <Button x:Name="RestoreButton" DockPanel.Dock="Right" Content="{x:Static r:Literals.MainView_RestoreButton_Content}" ToolTip="{x:Static r:Literals.MainView_RestoreButton_ToolTip}" Width="30" Margin="1,5,1,5" Visibility="Collapsed" Click="RestoreButton_Click"/>
-            <Button DockPanel.Dock="Right" Content="{x:Static r:Literals.MainView_MinimizeButton_Content}" ToolTip="{x:Static r:Literals.MainView_MinimizeButton_ToolTip}" Width="30" Margin="1,5,1,5" Click="MinimizeButton_Click" />
-            <Label DockPanel.Dock="Left" Content="{x:Static r:Literals.MainView_Title}" Style="{StaticResource HeaderLabelStyle}" MouseDown="HeaderLabel_MouseDown" />
+            <Button DockPanel.Dock="Right" Content="{x:Static r:Literals.MainView_CloseButton_Content}" ToolTip="{x:Static r:Literals.MainView_CloseButton_ToolTip}" Width="30" Margin="1,5,5,5" Command="{Binding CloseMainViewCommand}"/>
+            <Button DockPanel.Dock="Right" Content="{x:Static r:Literals.MainView_MaximizeButton_Content}" ToolTip="{x:Static r:Literals.MainView_MaximizeButton_ToolTip}" Width="30" Margin="1,5,1,5" Visibility="{Binding MaximizeButtonVisibility}" Command="{Binding MaximizeMainViewCommand}" />
+            <Button DockPanel.Dock="Right" Content="{x:Static r:Literals.MainView_RestoreButton_Content}" ToolTip="{x:Static r:Literals.MainView_RestoreButton_ToolTip}" Width="30" Margin="1,5,1,5" Visibility="{Binding RestoreButtonVisibility}" Command="{Binding RestoreMainViewCommand}" />
+            <Button DockPanel.Dock="Right" Content="{x:Static r:Literals.MainView_MinimizeButton_Content}" ToolTip="{x:Static r:Literals.MainView_MinimizeButton_ToolTip}" Width="30" Margin="1,5,1,5" Command="{Binding MinimizeMainViewCommand}" />
+            <Label DockPanel.Dock="Left" Content="{x:Static r:Literals.MainView_Title}" Style="{StaticResource HeaderLabelStyle}" l:MouseBehaviour.MouseDownCommand="{Binding MainViewMoveByHeaderLabelMouseDownCommand}"/>
         </DockPanel>
         <Grid>
             <Grid.ColumnDefinitions>

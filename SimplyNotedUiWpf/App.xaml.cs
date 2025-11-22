@@ -10,7 +10,13 @@ namespace SimplyNotedUiWpf
     {
         App()
         {
-            Properties["PathFile"] = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData), "SimplyNoted", "__sn_notes__.json");
+            Properties["PathFile"] = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "SimplyNoted", "__sn_notes__.json");
+        }
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+            _ = new ViewModels.MainViewModel();
         }
     }
 }

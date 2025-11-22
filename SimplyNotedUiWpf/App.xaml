@@ -1,8 +1,7 @@
 ﻿<Application x:Class="SimplyNotedUiWpf.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:SimplyNotedUiWpf"
-             StartupUri="Views/MainView.xaml">
+             xmlns:local="clr-namespace:SimplyNotedUiWpf">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

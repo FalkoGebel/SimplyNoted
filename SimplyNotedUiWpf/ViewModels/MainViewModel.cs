@@ -2,8 +2,10 @@
 using CommunityToolkit.Mvvm.Input;
 using SimplyNotedLibrary;
 using SimplyNotedLibrary.Models;
+using SimplyNotedUiWpf.Views;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace SimplyNotedUiWpf.ViewModels
 {
@@ -11,12 +13,18 @@ namespace SimplyNotedUiWpf.ViewModels
     {
         private readonly string _pathFile = Application.Current.Properties["PathFile"] as string
                                                 ?? throw new ArgumentNullException(nameof(_pathFile));
+        private MainView _mainView;
         private Notes _notes = new();
 
         public MainViewModel()
         {
             UpdateNotesFromFile();
             UpdateNoteSorting(null);
+
+            _mainView = new(this);
+            _mainView.Show();
+
+            RestoreButtonVisibility = Visibility.Collapsed;
         }
 
         [ObservableProperty]
@@ -57,6 +65,12 @@ namespace SimplyNotedUiWpf.ViewModels
 
         [ObservableProperty]
         private bool _saveButtonIsEnabled;
+
+        [ObservableProperty]
+        private Visibility _restoreButtonVisibility;
+
+        [ObservableProperty]
+        private Visibility _maximizeButtonVisibility;
 
         [RelayCommand]
         private void NewNote()
@@ -151,6 +165,43 @@ namespace SimplyNotedUiWpf.ViewModels
                 NoteModels = [.. NoteModels.OrderByDescending(n => n.Title)];
                 NotesSortingTitleDescendingCheckmarkVisible = true;
             }
+        }
+
+        [RelayCommand]
+        private void MainViewMoveByHeaderLabelMouseDown(MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                _mainView.DragMove();
+        }
+
+        [RelayCommand]
+        private void MinimizeMainView()
+        {
+            _mainView.WindowState = WindowState.Minimized;
+        }
+
+        [RelayCommand]
+        private void MaximizeMainView()
+        {
+            _mainView.BorderThickness = new Thickness(8);
+            _mainView.WindowState = WindowState.Maximized;
+            MaximizeButtonVisibility = Visibility.Collapsed;
+            RestoreButtonVisibility = Visibility.Visible;
+        }
+
+        [RelayCommand]
+        private void RestoreMainView()
+        {
+            _mainView.BorderThickness = new Thickness(0);
+            _mainView.WindowState = WindowState.Normal;
+            RestoreButtonVisibility = Visibility.Collapsed;
+            MaximizeButtonVisibility = Visibility.Visible;
+        }
+
+        [RelayCommand]
+        private void CloseMainView()
+        {
+            _mainView.Close();
         }
 
         partial void OnSelectedNoteModelChanged(NoteModel? value)
