@@ -1,0 +1,28 @@
+﻿<Window x:Class="SimplyNotedUiWpf.Views.ConfirmView"
+        x:Name="ConfirmWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:SimplyNotedUiWpf.ViewModels"
+        xmlns:r="clr-namespace:SimplyNotedUiWpf.Properties"
+        xmlns:local="clr-namespace:SimplyNotedUiWpf.Views"
+        xmlns:l="clr-namespace:SimplyNotedUiWpf.Logic"
+        d:DataContext="{d:DesignInstance Type=vm:ConfirmViewModel}"
+        mc:Ignorable="d"
+        Style="{DynamicResource ResourceKey=WindowDefaultStyle}"
+        Title="{x:Static r:Literals.ConfirmView_Title}" Height="100" Width="200"
+        ResizeMode="NoResize" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" Topmost="True" ShowInTaskbar="False"
+        WindowStyle="None"
+        BorderThickness="1,1,2,2">
+    <DockPanel>
+        <DockPanel DockPanel.Dock="Top" Background="{DynamicResource DockPanel.Background.Special}">
+            <Label DockPanel.Dock="Top" Content="{Binding Title}" Style="{StaticResource HeaderLabelStyle}" l:MouseBehaviour.MouseDownCommand="{Binding ConfirmViewMoveByHeaderLabelMouseDownCommand}"/>
+            <TextBox DockPanel.Dock="Top" Text="{Binding Message}" TextWrapping="Wrap" IsEnabled="False" MinWidth="200" MaxWidth="400"/>
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="Yes" Command="{Binding YesCommand}" CommandParameter="{Binding ElementName=ConfirmWindow}" Width="50" Height="30" />
+                <Button Content="No" Command="{Binding NoCommand}" CommandParameter="{Binding ElementName=ConfirmWindow}" Width="50" Height="30" />
+            </StackPanel>
+        </DockPanel>
+    </DockPanel>
+</Window>
