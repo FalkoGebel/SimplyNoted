@@ -13,7 +13,7 @@ namespace SimplyNotedUiWpf.ViewModels
     {
         private readonly string _pathFile = Application.Current.Properties["PathFile"] as string
                                                 ?? throw new ArgumentNullException(nameof(_pathFile));
-        private MainView _mainView;
+        private readonly MainView _mainView;
         private Notes _notes = new();
 
         public MainViewModel()
@@ -90,15 +90,12 @@ namespace SimplyNotedUiWpf.ViewModels
             if (CurrentNoteModel == null)
                 return;
 
-            MessageBoxResult result = MessageBox.Show(
+            ConfirmViewModel confirmViewModel = new(Properties.Literals.MainViewModel_DeleteNote_ConfirmationTitle,
                 string.Format(Properties.Literals.MainViewModel_DeleteNote_ConfirmationMessage,
                               CurrentNoteModel.Title,
-                              CurrentNoteModel.CreatedAt.ToString("dd.M.yyyy HH:mm:ss")),
-                Properties.Literals.MainViewModel_DeleteNote_ConfirmationTitle,
-                MessageBoxButton.YesNo,
-                MessageBoxImage.Question);
+                              CurrentNoteModel.CreatedAt.ToString("dd.M.yyyy HH:mm:ss")));
 
-            if (result == MessageBoxResult.Yes)
+            if (confirmViewModel.Confirmed)
             {
                 _notes.DeleteNote(CurrentNoteModel.Id);
                 _notes.SaveToFile(_pathFile);
