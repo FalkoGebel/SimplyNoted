@@ -11,7 +11,7 @@
         d:DataContext="{d:DesignInstance Type=vm:ConfirmViewModel}"
         mc:Ignorable="d"
         Style="{DynamicResource ResourceKey=WindowDefaultStyle}"
-        Title="{x:Static r:Literals.ConfirmView_Title}" Height="100" Width="200"
+        Height="100" Width="200"
         ResizeMode="NoResize" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" Topmost="True" ShowInTaskbar="False"
         WindowStyle="None"
         BorderThickness="1,1,2,2">

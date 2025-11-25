@@ -7,6 +7,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
+// TODO - Create design for vertical and horizontal scrollbar
+
 namespace SimplyNotedUiWpf.ViewModels
 {
     public partial class MainViewModel : ObservableObject
@@ -93,7 +95,8 @@ namespace SimplyNotedUiWpf.ViewModels
             ConfirmViewModel confirmViewModel = new(Properties.Literals.MainViewModel_DeleteNote_ConfirmationTitle,
                 string.Format(Properties.Literals.MainViewModel_DeleteNote_ConfirmationMessage,
                               CurrentNoteModel.Title,
-                              CurrentNoteModel.CreatedAt.ToString("dd.M.yyyy HH:mm:ss")));
+                              CurrentNoteModel.CreatedAt.ToString("dd.MM.yyyy"),
+                              CurrentNoteModel.CreatedAt.ToString("HH:mm:ss")));
 
             if (confirmViewModel.Confirmed)
             {
