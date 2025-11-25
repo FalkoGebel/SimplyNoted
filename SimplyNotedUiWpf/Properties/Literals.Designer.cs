@@ -61,15 +61,6 @@ namespace SimplyNotedUiWpf.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Confirm ähnelt.
-        /// </summary>
-        public static string ConfirmView_Title {
-            get {
-                return ResourceManager.GetString("ConfirmView_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die X ähnelt.
         /// </summary>
         public static string MainView_CloseButton_Content {
@@ -259,7 +250,7 @@ namespace SimplyNotedUiWpf.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Do you want to delete the current note with the title &quot;{0}&quot; created at {1}? ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Do you want to delete the current note with the title &quot;{0}&quot; created on {1} at {2}? ähnelt.
         /// </summary>
         public static string MainViewModel_DeleteNote_ConfirmationMessage {
             get {
