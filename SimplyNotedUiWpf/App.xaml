@@ -10,6 +10,7 @@
                 <ResourceDictionary Source="Themes/GridSplitterTheme.xaml" />
                 <ResourceDictionary Source="Themes/LabelTheme.xaml" />
                 <ResourceDictionary Source="Themes/ListBoxTheme.xaml" />
+                <ResourceDictionary Source="Themes/ScrollBarTheme.xaml" />
                 <ResourceDictionary Source="Themes/TextBoxTheme.xaml" />
                 <ResourceDictionary Source="Themes/ToolTipTheme.xaml" />
                 <ResourceDictionary Source="Themes/WindowTheme.xaml" />
